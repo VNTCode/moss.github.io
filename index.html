@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preisliste der Bäckerei</title>
+    <title>Preisliste</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -69,42 +69,68 @@
             <tbody>
                 <tr>
                     <td>Warmer Kakao</td>
-                    <td class="price">1,50€</td>
+                    <td class="price" id="price-kakao"></td>
                 </tr>
                 <tr>
                     <td>Warmer Kaffee</td>
-                    <td class="price">2,50€</td>
+                    <td class="price" id="price-kaffee"></td>
                 </tr>
                 <tr>
                     <td>2 Streuselbrötchen</td>
-                    <td class="price">3,00€</td>
+                    <td class="price" id="price-streusel"></td>
                 </tr>
                 <tr>
                     <td>Schnitzelbrötchen</td>
-                    <td class="price">5,00€</td>
+                    <td class="price" id="price-schnitzel"></td>
                 </tr>
                 <tr>
                     <td>Muffin</td>
-                    <td class="price">3,00€</td>
+                    <td class="price" id="price-muffin"></td>
                 </tr>
                 <tr>
                     <td>Rollkuchen</td>
-                    <td class="price">3,00€</td>
+                    <td class="price" id="price-rollkuchen"></td>
                 </tr>
                 <tr>
                     <td>2 Schokobrötchen</td>
-                    <td class="price">3,00€</td>
+                    <td class="price" id="price-schokobrötchen"></td>
                 </tr>
                 <tr>
                     <td>Baguette Tomate und Mozzarella</td>
-                    <td class="price">5,00€</td>
+                    <td class="price" id="price-baguette"></td>
                 </tr>
                 <tr>
                     <td>Halbes Mettbrötchen</td>
-                    <td class="price">3,00€</td>
+                    <td class="price" id="price-mettbrötchen"></td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <script>
+        // Definiere die Preise an einer zentralen Stelle
+        const preise = {
+            kakao: "2,50€",
+            kaffee: "2,50€",
+            streusel: "3,00€",
+            schnitzel: "5,00€",
+            muffin: "3,00€",
+            rollkuchen: "3,00€",
+            schokobrötchen: "3,00€",
+            baguette: "5,00€",
+            mettbrötchen: "3,00€"
+        };
+
+        // Setze die Preise in die entsprechenden Tabellenzellen
+        document.getElementById("price-kakao").innerText = preise.kakao;
+        document.getElementById("price-kaffee").innerText = preise.kaffee;
+        document.getElementById("price-streusel").innerText = preise.streusel;
+        document.getElementById("price-schnitzel").innerText = preise.schnitzel;
+        document.getElementById("price-muffin").innerText = preise.muffin;
+        document.getElementById("price-rollkuchen").innerText = preise.rollkuchen;
+        document.getElementById("price-schokobrötchen").innerText = preise.schokobrötchen;
+        document.getElementById("price-baguette").innerText = preise.baguette;
+        document.getElementById("price-mettbrötchen").innerText = preise.mettbrötchen;
+    </script>
 </body>
 </html>
