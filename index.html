@@ -13,7 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
             max-width: 900px;
@@ -23,9 +23,44 @@
             border-radius: 8px;
             padding: 20px;
         }
-        h1 {
+        /* Verbesserte Überschrift */
+        h1, h2 {
             text-align: center;
             color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #ff5722;
+            font-size: 2em;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #ffcc80;
+            color: #333;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #ffb74d;
+        }
+        /* Kontakt-Button spezifizieren */
+        #kontakt-button {
+            background-color: #25D366; /* WhatsApp-Grün */
+            color: white;
+            margin-left: auto; /* Rechts ausrichten */
+        }
+        #kontakt-button:hover {
+            background-color: #1EBE57; /* Leicht dunkleres Grün beim Hover */
         }
         table {
             width: 100%;
@@ -54,64 +89,130 @@
             font-weight: bold;
             color: #ff5722;
         }
+        #preise, #sonderangebote {
+            display: none;
+        }
+        #preise.active, #sonderangebote.active {
+            display: block;
+        }
+
+        /* Boxen für Sonderangebote */
+        .sonderangebote-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .angebot-box {
+            background-color: #fff3e0;
+            padding: 20px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .angebot-box:hover {
+            transform: scale(1.05);
+        }
+        .angebot-box h3 {
+            color: #ff5722;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .angebot-box p {
+            color: #333;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Preisliste der Bäckerei</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Artikel</th>
-                    <th>Preis</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Warmer Kakao</td>
-                    <td class="price" id="price-kakao"></td>
-                </tr>
-                <tr>
-                    <td>Warmer Kaffee</td>
-                    <td class="price" id="price-kaffee"></td>
-                </tr>
-                <tr>
-                    <td>2 Streuselbrötchen</td>
-                    <td class="price" id="price-streusel"></td>
-                </tr>
-                <tr>
-                    <td>Schnitzelbrötchen</td>
-                    <td class="price" id="price-schnitzel"></td>
-                </tr>
-                <tr>
-                    <td>Muffin</td>
-                    <td class="price" id="price-muffin"></td>
-                </tr>
-                <tr>
-                    <td>Rollkuchen</td>
-                    <td class="price" id="price-rollkuchen"></td>
-                </tr>
-                <tr>
-                    <td>2 Schokobrötchen</td>
-                    <td class="price" id="price-schokobrötchen"></td>
-                </tr>
-                <tr>
-                    <td>Baguette Tomate und Mozzarella</td>
-                    <td class="price" id="price-baguette"></td>
-                </tr>
-                <tr>
-                    <td>Halbes Mettbrötchen</td>
-                    <td class="price" id="price-mettbrötchen"></td>
-                </tr>
-            </tbody>
-        </table>
+        <h1>Preisliste</h1>
+        
+        <!-- Navigation für die Tabs -->
+        <nav>
+            <a href="#" id="preise-tab">Preise</a>
+            <a href="#" id="sonderangebote-tab">Sonderangebote</a>
+            <a href="https://chat.whatsapp.com/DEIN-GRUPPENLINK" target="_blank" id="kontakt-button">Kontakt</a> <!-- WhatsApp-Gruppenlink -->
+        </nav>
+
+        <!-- Preistabelle -->
+        <div id="preise" class="active">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Artikel</th>
+                        <th>Preis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Warmer Kakao</td>
+                        <td class="price" id="price-kakao"></td>
+                    </tr>
+                    <tr>
+                        <td>Warmer Kaffee</td>
+                        <td class="price" id="price-kaffee"></td>
+                    </tr>
+                    <tr>
+                        <td>2 Streuselbrötchen</td>
+                        <td class="price" id="price-streusel"></td>
+                    </tr>
+                    <tr>
+                        <td>Schnitzelbrötchen</td>
+                        <td class="price" id="price-schnitzel"></td>
+                    </tr>
+                    <tr>
+                        <td>Muffin</td>
+                        <td class="price" id="price-muffin"></td>
+                    </tr>
+                    <tr>
+                        <td>Rollkuchen</td>
+                        <td class="price" id="price-rollkuchen"></td>
+                    </tr>
+                    <tr>
+                        <td>2 Schokobrötchen</td>
+                        <td class="price" id="price-schokobrötchen"></td>
+                    </tr>
+                    <tr>
+                        <td>Baguette Tomate und Mozzarella</td>
+                        <td class="price" id="price-baguette"></td>
+                    </tr>
+                    <tr>
+                        <td>Halbes Mettbrötchen</td>
+                        <td class="price" id="price-mettbrötchen"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sonderangebote mit Boxen -->
+        <div id="sonderangebote">
+            <h2>Sonderangebote</h2>
+            <div class="sonderangebote-box">
+                <div class="angebot-box">
+                    <h3>3 Streuselbrötchen zum Preis von 2</h3>
+                    <p>Hol dir 3 Streuselbrötchen, zahl aber nur 2!</p>
+                </div>
+                <div class="angebot-box">
+                    <h3>Kaffee und Muffin für 4,50€</h3>
+                    <p>Genieße unseren Kaffee mit einem frischen Muffin!</p>
+                </div>
+                <div class="angebot-box">
+                    <h3>Schnitzelbrötchen zum halben Preis</h3>
+                    <p>Ab 16:00 Uhr gibt es unser leckeres Schnitzelbrötchen zum halben Preis.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         // Definiere die Preise an einer zentralen Stelle
         const preise = {
-            kakao: "2,50€",
-            kaffee: "50€",
+            kakao: "2,00€",
+            kaffee: "2,50€",
             streusel: "3,00€",
             schnitzel: "5,00€",
             muffin: "3,00€",
@@ -131,6 +232,24 @@
         document.getElementById("price-schokobrötchen").innerText = preise.schokobrötchen;
         document.getElementById("price-baguette").innerText = preise.baguette;
         document.getElementById("price-mettbrötchen").innerText = preise.mettbrötchen;
+
+        // Tab-Navigation
+        const preiseTab = document.getElementById("preise-tab");
+        const sonderangeboteTab = document.getElementById("sonderangebote-tab");
+        const preiseSection = document.getElementById("preise");
+        const sonderangeboteSection = document.getElementById("sonderangebote");
+
+        preiseTab.addEventListener("click", function (event) {
+            event.preventDefault();
+            preiseSection.classList.add("active");
+            sonderangeboteSection.classList.remove("active");
+        });
+
+        sonderangeboteTab.addEventListener("click", function (event) {
+            event.preventDefault();
+            sonderangeboteSection.classList.add("active");
+            preiseSection.classList.remove("active");
+        });
     </script>
 </body>
 </html>
